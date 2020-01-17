@@ -1,7 +1,11 @@
 /* Step 1: using axios, send a GET request to the following URL 
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
-*/
+// */
+// axios.get("https://api.github.com/users/AspDev34")
+//     .then(response => {
+//       console.log(response);
+//     })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -29,10 +33,10 @@ const followersArray = [];
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
 
-<div class="card">
-  <img src={image url of user} />
+<div class="card"> created
+  <img src={image url of user} /> created
   <div class="card-info">
-    <h3 class="name">{users name}</h3>
+    <h3 class="name">{users name}</h3> ok
     <p class="username">{users user name}</p>
     <p>Location: {users location}</p>
     <p>Profile:  
@@ -45,6 +49,14 @@ const followersArray = [];
 </div>
 
 */
+function newCard (obj) {
+  const parentDiv = document.createElement('div');
+  const imgCreate = document.createElement('img');
+  const cardInfoDiv = document.createElement('div');
+  const h3Create = document.createElement('h3');
+  const 
+
+}
 
 /* List of LS Instructors Github username's: 
   tetondan
