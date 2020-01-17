@@ -81,6 +81,21 @@ function newCard (obj) {
   cardInfoDiv.append(profilePtag);
   profilePtag.append(addressAtag);
 
+  // pass obj data to newCard
+  imgCreate.src = obj.avatar_url;
+  h3Create.textContent = obj.name;
+  usernamePtag.textContent = obj.login;
+  userslocationPtag.textContent = `Location: ${obj.location}`;
+  addressAtag.href = obj.html_url;
+  addressAtag.textContent = obj.html_url;
+  profilePtag.textContent = "Profile: ";
+  followersPtag.textContent = `Followers: ${obj.followers}`;
+  followingPtag.textContent = `Following: ${obj.following}`;
+  bioPtag.textContent = `Bio: ${obj.bio}`;
+
+  
+
+
   return parentDiv;
 }
 
