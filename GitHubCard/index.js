@@ -2,13 +2,7 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 // */
-// axios.get("https://api.github.com/users/AspDev34")
-//     .then(response => {
-//       console.log(response);
-//     })
-//       .catch(error => {
-//         console.log(error);
-//       })
+// 
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -31,7 +25,13 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [
+  `tetondan`,
+  `dustinmyers`,
+  `justsml`,
+  `luishrd`,
+  `bigknell`,
+];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -74,7 +74,7 @@ function newCard (obj) {
 
   // Append created elements to the containing div
   parentDiv.append(imgCreate);
-  parentDiv.append(cardInfoDiv);
+  parentDiv.append(cardInfoDiv); 
   cardInfoDiv.append(h3Create);
   cardInfoDiv.append(usernamePtag);
   cardInfoDiv.append(userslocationPtag);
@@ -93,11 +93,31 @@ function newCard (obj) {
   followingPtag.textContent = `Following: ${obj.following}`;
   bioPtag.textContent = `Bio: ${obj.bio}`;
 
-  
-
-
   return parentDiv;
 }
+
+// selected class from html that i'm going to append the new component to
+const appendNewCard = document.querySelector('.cards');
+
+// this axios call now goes and gets the actual data from the github API
+axios.get("https://api.github.com/users/AspDev34")
+    .then(response => {
+      const makeNewCard = newCard(response.data);
+        appendNewCard.appendChild(makeNewCard);
+    })
+      .catch(error => {
+        console.log("An error has occurred", error);
+      })
+
+// this forEach now grabs the data from users in the array 
+followersArray.forEach(event => {
+  axios.get(`https://api.github.com/users/${event}`)
+    .then(response => {
+      const cardRes = newCard(response.data);
+      appendNewCard.appendChild(cardRes);
+    })
+})     
+
 
 /* List of LS Instructors Github username's: 
   tetondan
