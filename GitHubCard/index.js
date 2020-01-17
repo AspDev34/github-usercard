@@ -2,10 +2,10 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 // */
-// // axios.get("https://api.github.com/users/AspDev34")
-// //     .then(response => {
-// //       console.log(response);
-// //     })
+// axios.get("https://api.github.com/users/AspDev34")
+//     .then(response => {
+//       console.log(response);
+//     })
 //       .catch(error => {
 //         console.log(error);
 //       })
@@ -36,11 +36,11 @@ const followersArray = [];
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
 
-<div class="card"> created
+<div class="card"> created & class
   <img src={image url of user} /> created
-  <div class="card-info"> created
-    <h3 class="name">{users name}</h3> created
-    <p class="username">{users user name}</p> created
+  <div class="card-info"> created & class
+    <h3 class="name">{users name}</h3> created & class
+    <p class="username">{users user name}</p> created & class
     <p>Location: {users location}</p> created
     <p>Profile:  created
       <a href={address to users github page}>{address to users github page}</a> created
@@ -53,6 +53,7 @@ const followersArray = [];
 
 */
 function newCard (obj) {
+  // create elements
   const parentDiv = document.createElement('div');
   const imgCreate = document.createElement('img');
   const cardInfoDiv = document.createElement('div');
@@ -64,6 +65,21 @@ function newCard (obj) {
   const followersPtag = document.createElement('p');
   const followingPtag = document.createElement('p');
   const bioPtag = document.createElement('p');
+
+  // Add classes for created elements
+  parentDiv.classList.add('card')
+  cardInfoDiv.classList.add('card-info');
+  h3Create.classList.add('name');
+  usernamePtag.classList.add('username');
+
+  // Append created elements to the containing div
+  parentDiv.append(imgCreate);
+  parentDiv.append(cardInfoDiv);
+  cardInfoDiv.append(h3Create);
+  cardInfoDiv.append(usernamePtag);
+  cardInfoDiv.append(userslocationPtag);
+  cardInfoDiv.append(profilePtag);
+  profilePtag.append(addressAtag);
 
   return parentDiv;
 }
